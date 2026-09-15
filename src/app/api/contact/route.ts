@@ -59,9 +59,6 @@ export async function POST(req: Request) {
       );
     }
 
-    // Recipients: Send to BOTH the admin (CONTACT_EMAIL) and the petitioner (EMAIL)
-    const recipients = Array.from(new Set([recipient, submission.email]));
-
     try {
       const res = await fetch('https://api.resend.com/emails', {
         method: 'POST',
@@ -71,8 +68,7 @@ export async function POST(req: Request) {
         },
         body: JSON.stringify({
           from: sender,
-          to: recipients,
-          reply_to: submission.email,
+          to: [recipient],
           template: {
             id: templateId,
             variables: {
