@@ -89,13 +89,6 @@ export const Scene07TheThrone: React.FC<Scene07TheThroneProps> = () => {
     };
   }, []);
 
-  // Auto-focus input when advancing steps
-  useEffect(() => {
-    if (inputRef.current && currentStep < 5 && scrollProgress > 0.70) {
-      inputRef.current.focus();
-    }
-  }, [currentStep, scrollProgress]);
-
   // 3-Keyframe Timeline (Approach -> Column Reveal -> The Enthroned Sovereign)
   // Keyframe 1: throne_01_approach (Establish hold 0.00 -> 0.22, fade out 0.22 -> 0.38)
   const plate1Opacity = Math.max(0, Math.min(1.0, 1 - Math.max(0, (scrollProgress - 0.22) / 0.16)));
@@ -360,7 +353,6 @@ export const Scene07TheThrone: React.FC<Scene07TheThroneProps> = () => {
             inset: '-5% -4% -5% -4%',
             opacity: plate1Opacity,
             transform: `translate3d(0, ${cameraTranslateY}px, 0) scale(${cameraScale})`,
-            transition: 'opacity 0.15s ease-out',
             zIndex: 2,
             pointerEvents: 'none',
           }}
@@ -386,7 +378,6 @@ export const Scene07TheThrone: React.FC<Scene07TheThroneProps> = () => {
             inset: '-5% -4% -5% -4%',
             opacity: plate2Opacity,
             transform: `translate3d(0, ${cameraTranslateY * 0.85}px, 0) scale(${cameraScale * 1.02})`,
-            transition: 'opacity 0.15s ease-out',
             zIndex: 3,
             pointerEvents: 'none',
             backgroundColor: '#050505',
@@ -412,7 +403,6 @@ export const Scene07TheThrone: React.FC<Scene07TheThroneProps> = () => {
             inset: '-5% -4% -5% -4%',
             opacity: plate3Opacity,
             transform: `translate3d(0, ${cameraTranslateY * 0.7}px, 0) scale(${cameraScale * 1.03})`,
-            transition: 'opacity 0.15s ease-out',
             zIndex: 4,
             pointerEvents: 'none',
             backgroundColor: '#050505',
@@ -455,7 +445,6 @@ export const Scene07TheThrone: React.FC<Scene07TheThroneProps> = () => {
             opacity: slabProgress,
             zIndex: 10,
             pointerEvents: 'none',
-            transition: 'opacity 0.4s ease-out',
           }}
         />
 
@@ -471,7 +460,6 @@ export const Scene07TheThrone: React.FC<Scene07TheThroneProps> = () => {
             opacity: slabProgress,
             pointerEvents: slabProgress > 0.4 ? 'auto' : 'none',
             zIndex: 20,
-            transition: 'opacity 0.3s ease-out, transform 0.3s ease-out',
           }}
         >
           {/* Monolithic Smoked Glass Slab Vessel */}
@@ -718,7 +706,6 @@ export const Scene07TheThrone: React.FC<Scene07TheThroneProps> = () => {
                     onChange={handleInputChange}
                     onKeyDown={handleKeyDown}
                     placeholder="Enter your name..."
-                    autoFocus
                     className="font-ui"
                     style={{
                       flex: 1,
@@ -726,7 +713,7 @@ export const Scene07TheThrone: React.FC<Scene07TheThroneProps> = () => {
                       backgroundColor: 'rgba(14, 13, 11, 0.85)',
                       border: '1px solid rgba(168, 137, 74, 0.35)',
                       color: 'var(--color-warm-ivory)',
-                      fontSize: '14px',
+                      fontSize: '16px',
                       outline: 'none',
                     }}
                   />
@@ -797,7 +784,6 @@ export const Scene07TheThrone: React.FC<Scene07TheThroneProps> = () => {
                     onChange={handleInputChange}
                     onKeyDown={handleKeyDown}
                     placeholder="Enter your age (e.g. 28)..."
-                    autoFocus
                     className="font-ui"
                     style={{
                       flex: 1,
@@ -805,7 +791,7 @@ export const Scene07TheThrone: React.FC<Scene07TheThroneProps> = () => {
                       backgroundColor: 'rgba(14, 13, 11, 0.85)',
                       border: '1px solid rgba(168, 137, 74, 0.35)',
                       color: 'var(--color-warm-ivory)',
-                      fontSize: '14px',
+                      fontSize: '16px',
                       outline: 'none',
                     }}
                   />
@@ -891,7 +877,6 @@ export const Scene07TheThrone: React.FC<Scene07TheThroneProps> = () => {
                     onChange={handleInputChange}
                     onKeyDown={handleKeyDown}
                     placeholder="Enter your city, land, or realm..."
-                    autoFocus
                     className="font-ui"
                     style={{
                       flex: 1,
@@ -899,7 +884,7 @@ export const Scene07TheThrone: React.FC<Scene07TheThroneProps> = () => {
                       backgroundColor: 'rgba(14, 13, 11, 0.85)',
                       border: '1px solid rgba(168, 137, 74, 0.35)',
                       color: 'var(--color-warm-ivory)',
-                      fontSize: '14px',
+                      fontSize: '16px',
                       outline: 'none',
                     }}
                   />
@@ -985,7 +970,6 @@ export const Scene07TheThrone: React.FC<Scene07TheThroneProps> = () => {
                     onChange={handleInputChange}
                     onKeyDown={handleKeyDown}
                     placeholder="your.email@domain.com"
-                    autoFocus
                     className="font-ui"
                     style={{
                       flex: 1,
@@ -993,7 +977,7 @@ export const Scene07TheThrone: React.FC<Scene07TheThroneProps> = () => {
                       backgroundColor: 'rgba(14, 13, 11, 0.85)',
                       border: '1px solid rgba(168, 137, 74, 0.35)',
                       color: 'var(--color-warm-ivory)',
-                      fontSize: '14px',
+                      fontSize: '16px',
                       outline: 'none',
                     }}
                   />
@@ -1157,7 +1141,6 @@ export const Scene07TheThrone: React.FC<Scene07TheThroneProps> = () => {
                   value={formData.grievance}
                   onChange={handleInputChange}
                   placeholder="Describe what has shattered, what injustice or collapse you face, and what needs to be reconstituted..."
-                  autoFocus
                   className="font-ui"
                   style={{
                     width: '100%',
@@ -1165,8 +1148,8 @@ export const Scene07TheThrone: React.FC<Scene07TheThroneProps> = () => {
                     backgroundColor: 'rgba(14, 13, 11, 0.85)',
                     border: '1px solid rgba(168, 137, 74, 0.35)',
                     color: 'var(--color-warm-ivory)',
-                    fontSize: '13.5px',
-                    lineHeight: 1.45,
+                    fontSize: '16px',
+                    lineHeight: 1.5,
                     outline: 'none',
                     resize: 'vertical',
                     marginBottom: '0.9rem',

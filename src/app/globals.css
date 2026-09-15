@@ -219,7 +219,6 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  touch-action: none;
   border-radius: 50%;
   background: radial-gradient(circle at center, rgba(168, 137, 74, 0.08) 0%, transparent 70%);
 }

@@ -457,10 +457,18 @@ export const Scene01TheSeal: React.FC<Scene01TheSealProps> = ({ onSealBroken }) 
             </g>
           </svg>
 
-          {/* Interactive Ritual Canvas */}
+          {/* Interactive Ritual Canvas (scoped strictly to circular glyph area to prevent mobile scroll trap) */}
           <canvas
             ref={canvasRef}
             className="ritual-canvas"
+            style={{
+              width: '80%',
+              height: '80%',
+              top: '10%',
+              left: '10%',
+              borderRadius: '50%',
+              pointerEvents: sealState === 'SEALED' ? 'none' : 'auto',
+            }}
             onPointerDown={handlePointerDown}
             onPointerMove={handlePointerMove}
             onPointerUp={handlePointerUp}

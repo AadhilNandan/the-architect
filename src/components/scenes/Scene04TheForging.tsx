@@ -118,7 +118,6 @@ export const Scene04TheForging: React.FC<Scene04TheForgingProps> = () => {
             inset: '-5% -4% -5% -4%',
             opacity: plate1Opacity,
             transform: `translate3d(${cameraTranslateX}px, ${cameraTranslateY}px, 0) scale(${cameraScale})`,
-            transition: 'opacity 0.15s ease-out',
             zIndex: 2,
             pointerEvents: 'none',
           }}
@@ -144,7 +143,6 @@ export const Scene04TheForging: React.FC<Scene04TheForgingProps> = () => {
             inset: '-5% -4% -5% -4%',
             opacity: plate2Opacity,
             transform: `translate3d(${cameraTranslateX * 0.7}px, ${cameraTranslateY * 0.85}px, 0) scale(${cameraScale * 1.02})`,
-            transition: 'opacity 0.15s ease-out',
             zIndex: 3,
             pointerEvents: 'none',
             backgroundColor: '#050505',
@@ -170,7 +168,6 @@ export const Scene04TheForging: React.FC<Scene04TheForgingProps> = () => {
             inset: '-5% -4% -5% -4%',
             opacity: plate3Opacity,
             transform: `translate3d(${cameraTranslateX * 0.4}px, ${cameraTranslateY * 0.7}px, 0) scale(${cameraScale * 1.04})`,
-            transition: 'opacity 0.15s ease-out',
             zIndex: 4,
             pointerEvents: 'none',
             backgroundColor: '#050505',
@@ -196,7 +193,6 @@ export const Scene04TheForging: React.FC<Scene04TheForgingProps> = () => {
             inset: '-5% -4% -5% -4%',
             opacity: transitionOpacity,
             transform: `translate3d(${transTranslateX}px, ${transTranslateY}px, 0) scale(${transScale})`,
-            transition: 'opacity 0.15s ease-out',
             zIndex: 5,
             pointerEvents: 'none',
           }}
@@ -221,10 +217,22 @@ export const Scene04TheForging: React.FC<Scene04TheForgingProps> = () => {
           style={{
             opacity: quoteOpacity,
             transform: `translate3d(0, ${quoteTranslateY}px, 0)`,
-            transition: 'opacity 0.3s ease-out, transform 0.3s ease-out',
             zIndex: 20,
           }}
         >
+          {/* Subtle Local Text Scrim */}
+          <div
+            style={{
+              position: 'absolute',
+              inset: '-1.25rem -1.75rem',
+              background: 'radial-gradient(ellipse 110% 100% at 30% 50%, rgba(5, 5, 5, 0.70) 0%, rgba(5, 5, 5, 0.38) 55%, transparent 85%)',
+              backdropFilter: 'blur(3px)',
+              WebkitBackdropFilter: 'blur(3px)',
+              pointerEvents: 'none',
+              zIndex: -1,
+              borderRadius: '6px',
+            }}
+          />
           {/* Act Badge Marker */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', marginBottom: '0.8rem' }}>
             <span

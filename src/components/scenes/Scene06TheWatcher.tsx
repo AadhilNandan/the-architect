@@ -123,7 +123,6 @@ export const Scene06TheWatcher: React.FC<Scene06TheWatcherProps> = () => {
             inset: '-5% -4% -5% -4%',
             opacity: plate1Opacity,
             transform: `translate3d(${bgTranslateX}px, ${bgTranslateY}px, 0) scale(${cameraScale})`,
-            transition: 'opacity 0.15s ease-out',
             zIndex: 2,
             pointerEvents: 'none',
           }}
@@ -149,7 +148,6 @@ export const Scene06TheWatcher: React.FC<Scene06TheWatcherProps> = () => {
             inset: '-5% -4% -5% -4%',
             opacity: plate2Opacity,
             transform: `translate3d(${bgTranslateX * 0.7}px, ${bgTranslateY * 0.85}px, 0) scale(${cameraScale * 1.02})`,
-            transition: 'opacity 0.15s ease-out',
             zIndex: 3,
             pointerEvents: 'none',
             backgroundColor: '#050505',
@@ -175,7 +173,6 @@ export const Scene06TheWatcher: React.FC<Scene06TheWatcherProps> = () => {
             inset: '-5% -4% -5% -4%',
             opacity: plate3Opacity,
             transform: `translate3d(${bgTranslateX * 0.4}px, ${bgTranslateY * 0.7}px, 0) scale(${cameraScale * 1.03})`,
-            transition: 'opacity 0.15s ease-out',
             zIndex: 4,
             pointerEvents: 'none',
             backgroundColor: '#050505',
@@ -201,7 +198,6 @@ export const Scene06TheWatcher: React.FC<Scene06TheWatcherProps> = () => {
             inset: '-5% -4% -5% -4%',
             opacity: transitionOpacity,
             transform: `translate3d(${transTranslateX}px, ${transTranslateY}px, 0) scale(${transScale})`,
-            transition: 'opacity 0.15s ease-out',
             zIndex: 5,
             pointerEvents: 'none',
           }}
@@ -227,6 +223,20 @@ export const Scene06TheWatcher: React.FC<Scene06TheWatcherProps> = () => {
             pointerEvents: 'none',
           }}
         >
+          {/* Subtle Local Text Scrim */}
+          <div
+            style={{
+              position: 'absolute',
+              inset: '-1.5rem -2rem',
+              background: 'radial-gradient(ellipse 110% 100% at 30% 50%, rgba(5, 5, 5, 0.72) 0%, rgba(5, 5, 5, 0.38) 55%, transparent 85%)',
+              backdropFilter: 'blur(3px)',
+              WebkitBackdropFilter: 'blur(3px)',
+              pointerEvents: 'none',
+              zIndex: -1,
+              opacity: Math.max(v1, v2, v3, v4),
+              borderRadius: '6px',
+            }}
+          />
           {/* Act Badge Marker */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', marginBottom: '1.2rem', opacity: v1 }}>
             <span
@@ -268,7 +278,6 @@ export const Scene06TheWatcher: React.FC<Scene06TheWatcherProps> = () => {
                 color: 'var(--color-warm-ivory)',
                 opacity: v1,
                 transform: `translate3d(0, ${(1 - v1) * 15}px, 0)`,
-                transition: 'opacity 0.25s ease-out, transform 0.25s ease-out',
                 margin: 0,
                 fontWeight: 400,
                 textShadow: '0 4px 20px rgba(0, 0, 0, 0.95)',
@@ -285,7 +294,6 @@ export const Scene06TheWatcher: React.FC<Scene06TheWatcherProps> = () => {
                 color: 'var(--color-warm-ivory)',
                 opacity: v2,
                 transform: `translate3d(0, ${(1 - v2) * 15}px, 0)`,
-                transition: 'opacity 0.25s ease-out, transform 0.25s ease-out',
                 margin: 0,
                 fontWeight: 400,
                 textShadow: '0 4px 20px rgba(0, 0, 0, 0.95)',
@@ -302,7 +310,6 @@ export const Scene06TheWatcher: React.FC<Scene06TheWatcherProps> = () => {
                 color: 'var(--color-warm-ivory)',
                 opacity: v3,
                 transform: `translate3d(0, ${(1 - v3) * 15}px, 0)`,
-                transition: 'opacity 0.25s ease-out, transform 0.25s ease-out',
                 margin: 0,
                 fontWeight: 400,
                 textShadow: '0 4px 20px rgba(0, 0, 0, 0.95)',
@@ -317,7 +324,6 @@ export const Scene06TheWatcher: React.FC<Scene06TheWatcherProps> = () => {
                 marginTop: '0.4rem',
                 opacity: v4,
                 transform: `translate3d(0, ${(1 - v4) * 15}px, 0)`,
-                transition: 'opacity 0.3s ease-out, transform 0.3s ease-out',
               }}
             >
               <h2

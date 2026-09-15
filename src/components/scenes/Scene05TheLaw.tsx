@@ -118,7 +118,6 @@ export const Scene05TheLaw: React.FC<Scene05TheLawProps> = () => {
             inset: '-5% -4% -5% -4%',
             opacity: plate1Opacity,
             transform: `translate3d(${cameraTranslateX}px, ${cameraTranslateY}px, 0) scale(${cameraScale})`,
-            transition: 'opacity 0.15s ease-out',
             zIndex: 2,
             pointerEvents: 'none',
           }}
@@ -144,7 +143,6 @@ export const Scene05TheLaw: React.FC<Scene05TheLawProps> = () => {
             inset: '-5% -4% -5% -4%',
             opacity: plate2Opacity,
             transform: `translate3d(${cameraTranslateX * 0.7}px, ${cameraTranslateY * 0.85}px, 0) scale(${cameraScale * 1.02})`,
-            transition: 'opacity 0.15s ease-out',
             zIndex: 3,
             pointerEvents: 'none',
             backgroundColor: '#050505',
@@ -170,7 +168,6 @@ export const Scene05TheLaw: React.FC<Scene05TheLawProps> = () => {
             inset: '-5% -4% -5% -4%',
             opacity: plate3Opacity,
             transform: `translate3d(${cameraTranslateX * 0.4}px, ${cameraTranslateY * 0.7}px, 0) scale(${cameraScale * 1.03})`,
-            transition: 'opacity 0.15s ease-out',
             zIndex: 4,
             pointerEvents: 'none',
             backgroundColor: '#050505',
@@ -196,7 +193,6 @@ export const Scene05TheLaw: React.FC<Scene05TheLawProps> = () => {
             inset: '-5% -4% -5% -4%',
             opacity: transitionOpacity,
             transform: `translate3d(${transTranslateX}px, ${transTranslateY}px, 0) scale(${transScale})`,
-            transition: 'opacity 0.15s ease-out',
             zIndex: 5,
             pointerEvents: 'none',
           }}
@@ -229,59 +225,73 @@ export const Scene05TheLaw: React.FC<Scene05TheLawProps> = () => {
             pointerEvents: 'none',
             opacity: decreeReveal,
             transform: `translate3d(0, ${(1 - decreeReveal) * 20}px, 0)`,
-            transition: 'opacity 0.3s ease-out, transform 0.3s ease-out',
           }}
         >
-          {/* Act Badge Marker */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', marginBottom: '1.2rem' }}>
-            <span
+          <div style={{ position: 'relative', display: 'flex', flexDirection: 'column', alignItems: 'center', maxWidth: '960px', width: '100%' }}>
+            {/* Subtle Local Text Scrim */}
+            <div
               style={{
-                width: '4px',
-                height: '4px',
-                transform: 'rotate(45deg)',
-                backgroundColor: 'var(--color-antique-gold)',
+                position: 'absolute',
+                inset: '-2rem -2.5rem',
+                background: 'radial-gradient(ellipse 90% 80% at center, rgba(5, 5, 5, 0.72) 0%, rgba(5, 5, 5, 0.38) 55%, transparent 85%)',
+                backdropFilter: 'blur(3px)',
+                WebkitBackdropFilter: 'blur(3px)',
+                pointerEvents: 'none',
+                zIndex: -1,
+                borderRadius: '8px',
               }}
             />
-            <span
-              className="font-ui"
+            {/* Act Badge Marker */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', marginBottom: '1.2rem' }}>
+              <span
+                style={{
+                  width: '4px',
+                  height: '4px',
+                  transform: 'rotate(45deg)',
+                  backgroundColor: 'var(--color-antique-gold)',
+                }}
+              />
+              <span
+                className="font-ui"
+                style={{
+                  fontSize: '10px',
+                  letterSpacing: '0.32em',
+                  textTransform: 'uppercase',
+                  color: 'var(--color-antique-gold)',
+                  fontWeight: 600,
+                }}
+              >
+                ACT V // THE LAW
+              </span>
+              <span
+                style={{
+                  width: '32px',
+                  height: '1px',
+                  backgroundColor: 'rgba(168, 137, 74, 0.4)',
+                }}
+              />
+            </div>
+
+            {/* Monumental Sovereign Decree (All-Caps Imperial Inscription) */}
+            <h2
+              className="font-cinematic"
               style={{
-                fontSize: '10px',
-                letterSpacing: '0.32em',
+                fontSize: 'clamp(1.8rem, 3.8vw, 3.4rem)',
+                color: 'var(--color-warm-ivory)',
+                lineHeight: 1.15,
+                letterSpacing: '0.12em',
                 textTransform: 'uppercase',
-                color: 'var(--color-antique-gold)',
-                fontWeight: 600,
+                fontWeight: 400,
+                maxWidth: '960px',
+                margin: 0,
+                textShadow: '0 4px 30px rgba(0, 0, 0, 0.98), 0 0 30px rgba(229, 194, 125, 0.22)',
               }}
             >
-              ACT V // THE LAW
-            </span>
-            <span
-              style={{
-                width: '32px',
-                height: '1px',
-                backgroundColor: 'rgba(168, 137, 74, 0.4)',
-              }}
-            />
+              Do Not Destroy
+              <br />
+              <span style={{ color: 'var(--color-luminous-gold)' }}>What You Cannot Rebuild.</span>
+            </h2>
           </div>
-
-          {/* Monumental Sovereign Decree (All-Caps Imperial Inscription) */}
-          <h2
-            className="font-cinematic"
-            style={{
-              fontSize: 'clamp(1.8rem, 3.8vw, 3.4rem)',
-              color: 'var(--color-warm-ivory)',
-              lineHeight: 1.15,
-              letterSpacing: '0.12em',
-              textTransform: 'uppercase',
-              fontWeight: 400,
-              maxWidth: '960px',
-              margin: 0,
-              textShadow: '0 4px 30px rgba(0, 0, 0, 0.98), 0 0 30px rgba(229, 194, 125, 0.22)',
-            }}
-          >
-            Do Not Destroy
-            <br />
-            <span style={{ color: 'var(--color-luminous-gold)' }}>What You Cannot Rebuild.</span>
-          </h2>
         </div>
       </div>
     </section>
