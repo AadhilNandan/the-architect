@@ -1,0 +1,352 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Manrope:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  /* Chromatic Substrate & Inlay Values */
+  --color-matte-black: #050505;
+  --color-stone-lowest: #0e0e0e;
+  --color-stone-surface: #0b0a08;
+  --color-stone-container: #131313;
+  --color-stone-low: #1c1b1b;
+  --color-stone-high: #201f1f;
+  --color-stone-highest: #2a2a2a;
+  
+  /* Primary Metals */
+  --color-antique-gold: #a8894a;
+  --color-luminous-gold: #e5c27d;
+  --color-gold-flare: #ffdea2;
+  --color-muted-gold: #756238;
+  --color-outline-variant: #4d4639;
+  
+  /* Editorial Typographic Scales */
+  --color-warm-ivory: #e8e0cf;
+  --color-smoke-grey: #77736a;
+  --color-outline: #998f80;
+  
+  /* Spatial & Vitruvian Units */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.75rem;
+  --space-xl: 3rem;
+  --space-2xl: 5rem;
+  
+  --margin-desktop: 3rem;
+  --margin-mobile: 1.25rem;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  background-color: var(--color-matte-black);
+  color: var(--color-warm-ivory);
+  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  scroll-behavior: smooth;
+  min-height: 100%;
+}
+
+body {
+  background-color: var(--color-matte-black);
+  color: var(--color-warm-ivory);
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: relative;
+  selection-background-color: rgba(168, 137, 74, 0.35);
+  selection-color: var(--color-warm-ivory);
+}
+
+/* Typography Classes */
+.font-cinematic {
+  font-family: 'Cormorant Garamond', Garamond, 'EB Garamond', Georgia, serif;
+}
+
+.font-ui {
+  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Smoked Obsidian Glassmorphism */
+.smoked-glass {
+  background: rgba(11, 10, 8, 0.82);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(168, 137, 74, 0.22);
+}
+
+.smoked-glass-elevated {
+  background: rgba(16, 15, 12, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(168, 137, 74, 0.38);
+  box-shadow: 0 12px 40px -10px rgba(0, 0, 0, 0.8), 0 0 20px -4px rgba(168, 137, 74, 0.12);
+}
+
+/* Inlays & Edge Highlights */
+.gold-border {
+  border: 1px solid rgba(168, 137, 74, 0.28);
+}
+
+.gold-border-subtle {
+  border: 1px solid rgba(168, 137, 74, 0.15);
+}
+
+.gold-border-active {
+  border: 1px solid var(--color-antique-gold);
+}
+
+.gold-glow {
+  box-shadow: 0 0 25px -4px rgba(168, 137, 74, 0.3);
+}
+
+.gold-glow-subtle {
+  box-shadow: 0 0 15px -2px rgba(168, 137, 74, 0.14);
+}
+
+.gold-flare-glow {
+  box-shadow: 0 0 40px -5px rgba(229, 194, 125, 0.45);
+}
+
+/* Strict Monolithic Edges */
+.monolith-radius {
+  border-radius: 0px;
+}
+
+/* Animations */
+@keyframes periodic-pulse {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.02);
+  }
+}
+
+@keyframes corona-breathe {
+  0%, 100% {
+    opacity: 0.25;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 0.42;
+    transform: translate(-50%, -50%) scale(1.08);
+  }
+}
+
+.animate-corona {
+  animation: corona-breathe 8s ease-in-out infinite;
+}
+
+.animate-pulse-subtle {
+  animation: periodic-pulse 4s ease-in-out infinite;
+}
+
+/* Scene 01 Component Layouts */
+.scene-container {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1.5rem 3.5rem;
+  background: radial-gradient(ellipse at 50% 35%, #12100d 0%, #080706 50%, #050505 100%);
+  overflow-x: hidden;
+  box-sizing: border-box;
+  gap: 1.5rem;
+}
+
+.scene-header {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.35rem;
+}
+
+.scene-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 3.8vw, 3.2rem);
+  color: var(--color-warm-ivory);
+  letter-spacing: 0.22em;
+  font-weight: 400;
+  text-transform: uppercase;
+  margin: 0;
+  line-height: 1.1;
+}
+
+/* Monumental Reliquary Book: Visual Dominance Increased by ~20% */
+.scene-book-box {
+  position: relative;
+  width: 285px;
+  height: 350px;
+  background: var(--color-stone-surface);
+  border: 1px solid rgba(168, 137, 74, 0.35);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.98), 0 0 35px rgba(168, 137, 74, 0.08);
+  overflow: hidden;
+  margin: 0.5rem auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.8s ease, filter 0.8s ease;
+}
+
+@media (max-width: 640px) {
+  .scene-book-box {
+    width: 230px;
+    height: 285px;
+    margin: 0.35rem auto;
+  }
+}
+
+/* Sacred Geometry Ritual Mandala: Monumental Presence */
+.scene-ritual-area {
+  position: relative;
+  z-index: 15;
+  width: 290px;
+  height: 290px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  touch-action: none;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, rgba(168, 137, 74, 0.08) 0%, transparent 70%);
+}
+
+@media (max-width: 640px) {
+  .scene-ritual-area {
+    width: 260px;
+    height: 260px;
+  }
+}
+
+/* Dormant Seal Breathing / Pulse */
+@keyframes sealDormantPulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 8px rgba(168, 137, 74, 0.2));
+    opacity: 0.88;
+  }
+  50% {
+    filter: drop-shadow(0 0 18px rgba(168, 137, 74, 0.4));
+    opacity: 1;
+  }
+}
+
+.seal-dormant-pulse {
+  animation: sealDormantPulse 5s ease-in-out infinite;
+}
+
+/* Unseal Flare State */
+.seal-flaring {
+  transform: scale(1.04);
+  filter: drop-shadow(0 0 35px rgba(255, 222, 162, 0.75)) !important;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.ritual-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  cursor: crosshair;
+  z-index: 20;
+  touch-action: none;
+}
+
+.status-rail {
+  width: 100%;
+  max-width: 300px;
+  background: rgba(14, 13, 10, 0.94);
+  border: 1px solid rgba(168, 137, 74, 0.28);
+  padding: 0.3rem 0.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0.35rem auto 0 auto;
+}
+
+/* Scene 02 — The Fracture Responsive Classes */
+.scene-02-architect {
+  position: absolute;
+  bottom: 18%;
+  left: 62%;
+  width: 95px;
+  height: 180px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  .scene-02-architect {
+    left: 66%;
+    bottom: 30%;
+    width: 70px;
+    height: 135px;
+  }
+}
+
+.scene-02-narration {
+  position: absolute;
+  bottom: 14%;
+  left: 9.5%;
+  max-width: 440px;
+  z-index: 20;
+  pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  .scene-02-narration {
+    left: 7%;
+    right: 7%;
+    bottom: 8%;
+    max-width: 86%;
+  }
+}
+
+.progress-track {
+  flex: 1;
+  height: 4px;
+  background: #1c1a14;
+  margin: 0 0.65rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #756238, #a8894a, #ffdea2);
+  transition: width 0.15s ease-out;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  background-color: var(--color-matte-black);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-stone-highest);
+  border: 1px solid rgba(168, 137, 74, 0.2);
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
