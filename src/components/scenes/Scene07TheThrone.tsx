@@ -464,7 +464,7 @@ export const Scene07TheThrone: React.FC<Scene07TheThroneProps> = () => {
         >
           {/* Monolithic Smoked Glass Slab Vessel */}
           <div
-            className="smoked-glass-elevated"
+            className="smoked-glass-elevated slab-inner-container"
             style={{
               padding: 'clamp(1.1rem, 2.8vw, 1.85rem)',
               backgroundColor: 'rgba(8, 7, 6, 0.90)',
@@ -472,6 +472,9 @@ export const Scene07TheThrone: React.FC<Scene07TheThroneProps> = () => {
               WebkitBackdropFilter: 'blur(16px)',
               border: '1px solid rgba(168, 137, 74, 0.28)',
               boxShadow: '0 24px 60px rgba(0, 0, 0, 0.95), inset 0 1px 0 rgba(229, 194, 125, 0.14)',
+              boxSizing: 'border-box',
+              width: '100%',
+              minWidth: 0,
             }}
           >
             {/* Header: Restrained Imperial Sanctum Bar */}
@@ -697,7 +700,7 @@ export const Scene07TheThrone: React.FC<Scene07TheThroneProps> = () => {
                   </p>
                 </div>
 
-                <div style={{ display: 'flex', gap: '0.65rem', alignItems: 'center' }}>
+                <div className="slab-step0-row">
                   <input
                     ref={inputRef as React.RefObject<HTMLInputElement>}
                     type="text"
@@ -709,6 +712,8 @@ export const Scene07TheThrone: React.FC<Scene07TheThroneProps> = () => {
                     className="font-ui"
                     style={{
                       flex: 1,
+                      minWidth: 0,
+                      boxSizing: 'border-box',
                       padding: '0.65rem 0.85rem',
                       backgroundColor: 'rgba(14, 13, 11, 0.85)',
                       border: '1px solid rgba(168, 137, 74, 0.35)',
@@ -733,6 +738,8 @@ export const Scene07TheThrone: React.FC<Scene07TheThroneProps> = () => {
                       cursor: 'pointer',
                       boxShadow: '0 4px 15px rgba(168, 137, 74, 0.25)',
                       whiteSpace: 'nowrap',
+                      boxSizing: 'border-box',
+                      maxWidth: '100%',
                     }}
                   >
                     CONTINUE →
@@ -773,7 +780,7 @@ export const Scene07TheThrone: React.FC<Scene07TheThroneProps> = () => {
                   </p>
                 </div>
 
-                <div style={{ display: 'flex', gap: '0.65rem', alignItems: 'center' }}>
+                <div className="slab-nav-step-container">
                   <input
                     ref={inputRef as React.RefObject<HTMLInputElement>}
                     type="number"
@@ -784,9 +791,11 @@ export const Scene07TheThrone: React.FC<Scene07TheThroneProps> = () => {
                     onChange={handleInputChange}
                     onKeyDown={handleKeyDown}
                     placeholder="Enter your age (e.g. 28)..."
-                    className="font-ui"
+                    className="font-ui slab-nav-input"
                     style={{
                       flex: 1,
+                      minWidth: 0,
+                      boxSizing: 'border-box',
                       padding: '0.65rem 0.85rem',
                       backgroundColor: 'rgba(14, 13, 11, 0.85)',
                       border: '1px solid rgba(168, 137, 74, 0.35)',
@@ -795,43 +804,47 @@ export const Scene07TheThrone: React.FC<Scene07TheThroneProps> = () => {
                       outline: 'none',
                     }}
                   />
-                  <button
-                    type="button"
-                    onClick={handlePrevStep}
-                    className="font-ui"
-                    style={{
-                      padding: '0.65rem 0.9rem',
-                      backgroundColor: 'transparent',
-                      border: '1px solid rgba(168, 137, 74, 0.25)',
-                      color: 'var(--color-smoke-grey)',
-                      fontSize: '10px',
-                      letterSpacing: '0.15em',
-                      textTransform: 'uppercase',
-                      cursor: 'pointer',
-                    }}
-                  >
-                    ←
-                  </button>
-                  <button
-                    type="button"
-                    onClick={handleNextStep}
-                    className="font-ui"
-                    style={{
-                      padding: '0.65rem 1.25rem',
-                      backgroundColor: 'var(--color-antique-gold)',
-                      border: '1px solid var(--color-luminous-gold)',
-                      color: '#050505',
-                      fontSize: '10.5px',
-                      letterSpacing: '0.2em',
-                      textTransform: 'uppercase',
-                      fontWeight: 700,
-                      cursor: 'pointer',
-                      boxShadow: '0 4px 15px rgba(168, 137, 74, 0.25)',
-                      whiteSpace: 'nowrap',
-                    }}
-                  >
-                    CONTINUE →
-                  </button>
+                  <div className="slab-nav-btn-group">
+                    <button
+                      type="button"
+                      onClick={handlePrevStep}
+                      className="font-ui slab-btn-prev"
+                      style={{
+                        padding: '0.65rem 0.9rem',
+                        backgroundColor: 'transparent',
+                        border: '1px solid rgba(168, 137, 74, 0.25)',
+                        color: 'var(--color-smoke-grey)',
+                        fontSize: '10px',
+                        letterSpacing: '0.15em',
+                        textTransform: 'uppercase',
+                        cursor: 'pointer',
+                        boxSizing: 'border-box',
+                      }}
+                    >
+                      ←
+                    </button>
+                    <button
+                      type="button"
+                      onClick={handleNextStep}
+                      className="font-ui slab-btn-continue"
+                      style={{
+                        padding: '0.65rem 1.25rem',
+                        backgroundColor: 'var(--color-antique-gold)',
+                        border: '1px solid var(--color-luminous-gold)',
+                        color: '#050505',
+                        fontSize: '10.5px',
+                        letterSpacing: '0.2em',
+                        textTransform: 'uppercase',
+                        fontWeight: 700,
+                        cursor: 'pointer',
+                        boxShadow: '0 4px 15px rgba(168, 137, 74, 0.25)',
+                        whiteSpace: 'nowrap',
+                        boxSizing: 'border-box',
+                      }}
+                    >
+                      CONTINUE →
+                    </button>
+                  </div>
                 </div>
               </div>
             )}
@@ -868,7 +881,7 @@ export const Scene07TheThrone: React.FC<Scene07TheThroneProps> = () => {
                   </p>
                 </div>
 
-                <div style={{ display: 'flex', gap: '0.65rem', alignItems: 'center' }}>
+                <div className="slab-nav-step-container">
                   <input
                     ref={inputRef as React.RefObject<HTMLInputElement>}
                     type="text"
@@ -877,9 +890,11 @@ export const Scene07TheThrone: React.FC<Scene07TheThroneProps> = () => {
                     onChange={handleInputChange}
                     onKeyDown={handleKeyDown}
                     placeholder="Enter your city, land, or realm..."
-                    className="font-ui"
+                    className="font-ui slab-nav-input"
                     style={{
                       flex: 1,
+                      minWidth: 0,
+                      boxSizing: 'border-box',
                       padding: '0.65rem 0.85rem',
                       backgroundColor: 'rgba(14, 13, 11, 0.85)',
                       border: '1px solid rgba(168, 137, 74, 0.35)',
@@ -888,43 +903,47 @@ export const Scene07TheThrone: React.FC<Scene07TheThroneProps> = () => {
                       outline: 'none',
                     }}
                   />
-                  <button
-                    type="button"
-                    onClick={handlePrevStep}
-                    className="font-ui"
-                    style={{
-                      padding: '0.65rem 0.9rem',
-                      backgroundColor: 'transparent',
-                      border: '1px solid rgba(168, 137, 74, 0.25)',
-                      color: 'var(--color-smoke-grey)',
-                      fontSize: '10px',
-                      letterSpacing: '0.15em',
-                      textTransform: 'uppercase',
-                      cursor: 'pointer',
-                    }}
-                  >
-                    ←
-                  </button>
-                  <button
-                    type="button"
-                    onClick={handleNextStep}
-                    className="font-ui"
-                    style={{
-                      padding: '0.65rem 1.25rem',
-                      backgroundColor: 'var(--color-antique-gold)',
-                      border: '1px solid var(--color-luminous-gold)',
-                      color: '#050505',
-                      fontSize: '10.5px',
-                      letterSpacing: '0.2em',
-                      textTransform: 'uppercase',
-                      fontWeight: 700,
-                      cursor: 'pointer',
-                      boxShadow: '0 4px 15px rgba(168, 137, 74, 0.25)',
-                      whiteSpace: 'nowrap',
-                    }}
-                  >
-                    CONTINUE →
-                  </button>
+                  <div className="slab-nav-btn-group">
+                    <button
+                      type="button"
+                      onClick={handlePrevStep}
+                      className="font-ui slab-btn-prev"
+                      style={{
+                        padding: '0.65rem 0.9rem',
+                        backgroundColor: 'transparent',
+                        border: '1px solid rgba(168, 137, 74, 0.25)',
+                        color: 'var(--color-smoke-grey)',
+                        fontSize: '10px',
+                        letterSpacing: '0.15em',
+                        textTransform: 'uppercase',
+                        cursor: 'pointer',
+                        boxSizing: 'border-box',
+                      }}
+                    >
+                      ←
+                    </button>
+                    <button
+                      type="button"
+                      onClick={handleNextStep}
+                      className="font-ui slab-btn-continue"
+                      style={{
+                        padding: '0.65rem 1.25rem',
+                        backgroundColor: 'var(--color-antique-gold)',
+                        border: '1px solid var(--color-luminous-gold)',
+                        color: '#050505',
+                        fontSize: '10.5px',
+                        letterSpacing: '0.2em',
+                        textTransform: 'uppercase',
+                        fontWeight: 700,
+                        cursor: 'pointer',
+                        boxShadow: '0 4px 15px rgba(168, 137, 74, 0.25)',
+                        whiteSpace: 'nowrap',
+                        boxSizing: 'border-box',
+                      }}
+                    >
+                      CONTINUE →
+                    </button>
+                  </div>
                 </div>
               </div>
             )}
@@ -961,7 +980,7 @@ export const Scene07TheThrone: React.FC<Scene07TheThroneProps> = () => {
                   </p>
                 </div>
 
-                <div style={{ display: 'flex', gap: '0.65rem', alignItems: 'center' }}>
+                <div className="slab-nav-step-container">
                   <input
                     ref={inputRef as React.RefObject<HTMLInputElement>}
                     type="email"
@@ -970,9 +989,11 @@ export const Scene07TheThrone: React.FC<Scene07TheThroneProps> = () => {
                     onChange={handleInputChange}
                     onKeyDown={handleKeyDown}
                     placeholder="your.email@domain.com"
-                    className="font-ui"
+                    className="font-ui slab-nav-input"
                     style={{
                       flex: 1,
+                      minWidth: 0,
+                      boxSizing: 'border-box',
                       padding: '0.65rem 0.85rem',
                       backgroundColor: 'rgba(14, 13, 11, 0.85)',
                       border: '1px solid rgba(168, 137, 74, 0.35)',
@@ -981,43 +1002,47 @@ export const Scene07TheThrone: React.FC<Scene07TheThroneProps> = () => {
                       outline: 'none',
                     }}
                   />
-                  <button
-                    type="button"
-                    onClick={handlePrevStep}
-                    className="font-ui"
-                    style={{
-                      padding: '0.65rem 0.9rem',
-                      backgroundColor: 'transparent',
-                      border: '1px solid rgba(168, 137, 74, 0.25)',
-                      color: 'var(--color-smoke-grey)',
-                      fontSize: '10px',
-                      letterSpacing: '0.15em',
-                      textTransform: 'uppercase',
-                      cursor: 'pointer',
-                    }}
-                  >
-                    ←
-                  </button>
-                  <button
-                    type="button"
-                    onClick={handleNextStep}
-                    className="font-ui"
-                    style={{
-                      padding: '0.65rem 1.25rem',
-                      backgroundColor: 'var(--color-antique-gold)',
-                      border: '1px solid var(--color-luminous-gold)',
-                      color: '#050505',
-                      fontSize: '10.5px',
-                      letterSpacing: '0.2em',
-                      textTransform: 'uppercase',
-                      fontWeight: 700,
-                      cursor: 'pointer',
-                      boxShadow: '0 4px 15px rgba(168, 137, 74, 0.25)',
-                      whiteSpace: 'nowrap',
-                    }}
-                  >
-                    CONTINUE →
-                  </button>
+                  <div className="slab-nav-btn-group">
+                    <button
+                      type="button"
+                      onClick={handlePrevStep}
+                      className="font-ui slab-btn-prev"
+                      style={{
+                        padding: '0.65rem 0.9rem',
+                        backgroundColor: 'transparent',
+                        border: '1px solid rgba(168, 137, 74, 0.25)',
+                        color: 'var(--color-smoke-grey)',
+                        fontSize: '10px',
+                        letterSpacing: '0.15em',
+                        textTransform: 'uppercase',
+                        cursor: 'pointer',
+                        boxSizing: 'border-box',
+                      }}
+                    >
+                      ←
+                    </button>
+                    <button
+                      type="button"
+                      onClick={handleNextStep}
+                      className="font-ui slab-btn-continue"
+                      style={{
+                        padding: '0.65rem 1.25rem',
+                        backgroundColor: 'var(--color-antique-gold)',
+                        border: '1px solid var(--color-luminous-gold)',
+                        color: '#050505',
+                        fontSize: '10.5px',
+                        letterSpacing: '0.2em',
+                        textTransform: 'uppercase',
+                        fontWeight: 700,
+                        cursor: 'pointer',
+                        boxShadow: '0 4px 15px rgba(168, 137, 74, 0.25)',
+                        whiteSpace: 'nowrap',
+                        boxSizing: 'border-box',
+                      }}
+                    >
+                      CONTINUE →
+                    </button>
+                  </div>
                 </div>
               </div>
             )}
@@ -1156,11 +1181,11 @@ export const Scene07TheThrone: React.FC<Scene07TheThroneProps> = () => {
                   }}
                 />
 
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '0.5rem' }}>
+                <div className="slab-step4-actions">
                   <button
                     type="button"
                     onClick={handlePrevStep}
-                    className="font-ui"
+                    className="font-ui slab-step4-btn"
                     style={{
                       padding: '0.65rem 1rem',
                       backgroundColor: 'transparent',
@@ -1175,12 +1200,12 @@ export const Scene07TheThrone: React.FC<Scene07TheThroneProps> = () => {
                     ← REVISE CONDUIT
                   </button>
 
-                  <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
+                  <div className="slab-step4-right-group">
                     <button
                       type="button"
                       onClick={handleConsultArchitect}
                       disabled={isConsulting || !formData.grievance.trim()}
-                      className="font-ui"
+                      className="font-ui slab-step4-btn"
                       style={{
                         padding: '0.65rem 1.1rem',
                         backgroundColor: 'rgba(168, 137, 74, 0.12)',
@@ -1200,7 +1225,7 @@ export const Scene07TheThrone: React.FC<Scene07TheThroneProps> = () => {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="font-ui"
+                      className="font-ui slab-step4-btn"
                       style={{
                         padding: '0.7rem 1.6rem',
                         backgroundColor: 'var(--color-antique-gold)',

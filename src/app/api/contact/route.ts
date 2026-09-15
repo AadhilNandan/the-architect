@@ -33,6 +33,7 @@ export async function POST(req: Request) {
     const apiKey = process.env.RESEND_API_KEY;
     const recipient = process.env.CONTACT_EMAIL;
     const sender = process.env.RESEND_FROM_EMAIL || 'The Architect <onboarding@resend.dev>';
+    const templateId = process.env.RESEND_TEMPLATE_ID;
 
     if (!apiKey) {
       console.error('[THE ARCHITECT] API Configuration Error: RESEND_API_KEY is not defined');
@@ -50,6 +51,17 @@ export async function POST(req: Request) {
       );
     }
 
+    if (!templateId) {
+      console.error('[THE ARCHITECT] API Configuration Error: RESEND_TEMPLATE_ID is not defined');
+      return NextResponse.json(
+        { error: 'Template conduit not configured. Please define RESEND_TEMPLATE_ID.' },
+        { status: 503 }
+      );
+    }
+
+    // Recipients: Send to BOTH the admin (CONTACT_EMAIL) and the petitioner (EMAIL)
+    const recipients = Array.from(new Set([recipient, submission.email]));
+
     try {
       const res = await fetch('https://api.resend.com/emails', {
         method: 'POST',
@@ -59,32 +71,34 @@ export async function POST(req: Request) {
         },
         body: JSON.stringify({
           from: sender,
-          to: [recipient],
+          to: recipients,
           reply_to: submission.email,
-          subject: `[The Architect] Inscription from ${submission.name} (${submission.location})`,
-          text: `
-THE ARCHITECT — SUPERHERO INSCRIBED PETITION
-=============================================
-Timestamp:  ${submission.timestamp}
-Petitioner: ${submission.name}
-Age/Cycles: ${submission.age}
-Location:   ${submission.location}
-Contact:    ${submission.email}
-
-GRIEVANCE / WHAT HAS FALLEN:
----------------------------------------------
-${submission.grievance}
-          `.trim(),
+          template: {
+            id: templateId,
+            variables: {
+              NAME: submission.name,
+              AGE: submission.age,
+              LOCATION: submission.location,
+              EMAIL: submission.email,
+              GRIEVANCE: submission.grievance,
+              TIMESTAMP: submission.timestamp,
+            },
+          },
         }),
       });
 
+      const resData = await res.json().catch(() => null);
+
       if (!res.ok) {
-        console.error('[THE ARCHITECT] Resend API dispatch rejected with status:', res.status);
+        console.error('[THE ARCHITECT] Resend API dispatch rejected with status:', res.status, resData);
+        const detail = resData?.message || resData?.error || 'Failed to deliver the petition.';
         return NextResponse.json(
-          { error: 'Failed to deliver the petition.' },
-          { status: 502 }
+          { error: `Failed to deliver the petition: ${detail}` },
+          { status: res.status >= 400 && res.status < 600 ? res.status : 502 }
         );
       }
+
+      console.log('[THE ARCHITECT] Petition delivered via Resend template:', resData?.id);
     } catch (emailErr) {
       console.error('[THE ARCHITECT] Resend dispatch network error:', emailErr);
       return NextResponse.json(
