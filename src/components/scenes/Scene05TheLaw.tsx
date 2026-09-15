@@ -124,13 +124,13 @@ export const Scene05TheLaw: React.FC<Scene05TheLawProps> = () => {
           }}
         >
           <Image
+            className="plate-law-01"
             src="/images/law_01_monument.jpeg"
             alt="Monumental reconstructed Roman basilica standing eternal"
             fill
             sizes="100vw"
             style={{
               objectFit: 'cover',
-              objectPosition: 'center 40%',
               filter: 'brightness(0.96) contrast(1.06)',
             }}
             priority
@@ -151,13 +151,13 @@ export const Scene05TheLaw: React.FC<Scene05TheLawProps> = () => {
           }}
         >
           <Image
+            className="plate-law-02"
             src="/images/law_02_standing.jpeg"
             alt="The Architect standing monolithic in black armor at the basilica portal"
             fill
             sizes="100vw"
             style={{
               objectFit: 'cover',
-              objectPosition: 'center',
               filter: 'brightness(0.98) contrast(1.08)',
             }}
           />
@@ -177,13 +177,13 @@ export const Scene05TheLaw: React.FC<Scene05TheLawProps> = () => {
           }}
         >
           <Image
+            className="plate-law-03"
             src="/images/law_03_judgement.jpeg"
             alt="The eternal basalt court under golden twilight"
             fill
             sizes="100vw"
             style={{
               objectFit: 'cover',
-              objectPosition: 'center 35%',
               filter: 'brightness(0.97) contrast(1.08)',
             }}
           />

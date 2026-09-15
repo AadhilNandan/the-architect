@@ -350,3 +350,121 @@ body {
     scroll-behavior: auto !important;
   }
 }
+
+/* ==========================================================================
+   Responsive Cinematic Keyframe Crops (Desktop base + Mobile <= 768px overrides)
+   ========================================================================== */
+.plate-fracture-01 {
+  object-position: 50% 35%;
+}
+
+.plate-transition-02-03 {
+  object-position: center 40%;
+}
+
+.plate-awakening-01 {
+  object-position: center 40%;
+}
+
+.plate-awakening-02 {
+  object-position: center;
+}
+
+.plate-awakening-03 {
+  object-position: center 35%;
+}
+
+.plate-forging-01 {
+  object-position: center 40%;
+}
+
+.plate-forging-02 {
+  object-position: center;
+}
+
+.plate-forging-03 {
+  object-position: center 35%;
+}
+
+.plate-law-01 {
+  object-position: center 40%;
+}
+
+.plate-law-02 {
+  object-position: center;
+}
+
+.plate-law-03 {
+  object-position: center 35%;
+}
+
+.plate-watcher-01 {
+  object-position: center 40%;
+}
+
+.plate-watcher-02 {
+  object-position: center;
+}
+
+.plate-throne-03 {
+  object-position: center 20%;
+}
+
+@media (max-width: 768px) {
+  .plate-fracture-01 {
+    object-position: 45% 35% !important;
+  }
+
+  .plate-transition-02-03 {
+    object-position: 72% 35% !important;
+  }
+
+  .plate-awakening-01 {
+    object-position: 72% 35% !important;
+  }
+
+  .plate-awakening-02 {
+    object-position: 72% 40% !important;
+  }
+
+  .plate-awakening-03 {
+    object-position: 70% 35% !important;
+  }
+
+  .plate-forging-01 {
+    object-position: center 55% !important;
+  }
+
+  .plate-forging-02 {
+    object-position: 62% 50% !important;
+  }
+
+  .plate-forging-03 {
+    object-position: 62% 45% !important;
+  }
+
+  .plate-law-01 {
+    object-position: 60% 45% !important;
+  }
+
+  .plate-law-02 {
+    object-position: 62% 35% !important;
+  }
+
+  .plate-law-03 {
+    object-position: 62% 35% !important;
+  }
+
+  .plate-watcher-01 {
+    object-position: center 50% !important;
+  }
+
+  .plate-watcher-02 {
+    object-position: center 50% !important;
+  }
+
+  .plate-throne-03 {
+    object-position: center 32% !important;
+  }
+}
+

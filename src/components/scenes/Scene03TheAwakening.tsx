@@ -124,13 +124,13 @@ export const Scene03TheAwakening: React.FC<Scene03TheAwakeningProps> = () => {
           }}
         >
           <Image
+            className="plate-awakening-01"
             src="/images/awakening_01_ruins.jpeg"
             alt="Falling Roman ruins arresting into gravitational stasis"
             fill
             sizes="100vw"
             style={{
               objectFit: 'cover',
-              objectPosition: 'center 40%',
               filter: 'brightness(0.96) contrast(1.06)',
             }}
             priority
@@ -151,13 +151,13 @@ export const Scene03TheAwakening: React.FC<Scene03TheAwakeningProps> = () => {
           }}
         >
           <Image
+            className="plate-awakening-02"
             src="/images/awakening_02_vision.jpeg"
             alt="The awakening of geometric cosmic blueprint over ancient stones"
             fill
             sizes="100vw"
             style={{
               objectFit: 'cover',
-              objectPosition: 'center',
               filter: 'brightness(0.98) contrast(1.08)',
             }}
           />
@@ -177,13 +177,13 @@ export const Scene03TheAwakening: React.FC<Scene03TheAwakeningProps> = () => {
           }}
         >
           <Image
+            className="plate-awakening-03"
             src="/images/awakening_03_design.jpeg"
             alt="The monumental design manifest, stone and order brought to absolute stillness"
             fill
             sizes="100vw"
             style={{
               objectFit: 'cover',
-              objectPosition: 'center 35%',
               filter: 'brightness(0.97) contrast(1.08)',
             }}
           />

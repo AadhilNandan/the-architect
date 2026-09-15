@@ -419,13 +419,13 @@ export const Scene07TheThrone: React.FC<Scene07TheThroneProps> = () => {
           }}
         >
           <Image
+            className="plate-throne-03"
             src="/images/throne_03_communion.jpeg"
             alt="The Architect seated upon the monumental throne flanked by gold lion finials"
             fill
             sizes="100vw"
             style={{
               objectFit: 'cover',
-              objectPosition: 'center 20%',
               filter: 'brightness(0.97) contrast(1.10)',
             }}
           />

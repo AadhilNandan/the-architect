@@ -124,13 +124,13 @@ export const Scene04TheForging: React.FC<Scene04TheForgingProps> = () => {
           }}
         >
           <Image
+            className="plate-forging-01"
             src="/images/forging_01_stone.jpeg"
             alt="Basalt blocks levitating along mathematical lines"
             fill
             sizes="100vw"
             style={{
               objectFit: 'cover',
-              objectPosition: 'center 40%',
               filter: 'brightness(0.96) contrast(1.06)',
             }}
             priority
@@ -151,13 +151,13 @@ export const Scene04TheForging: React.FC<Scene04TheForgingProps> = () => {
           }}
         >
           <Image
+            className="plate-forging-02"
             src="/images/forging_02_energy.jpeg"
             alt="Concentric amber dimensional portal unfurling with reverse-entropy light"
             fill
             sizes="100vw"
             style={{
               objectFit: 'cover',
-              objectPosition: 'center',
               filter: 'brightness(0.98) contrast(1.08)',
             }}
           />
@@ -177,13 +177,13 @@ export const Scene04TheForging: React.FC<Scene04TheForgingProps> = () => {
           }}
         >
           <Image
+            className="plate-forging-03"
             src="/images/forging_03_architect.jpeg"
             alt="The Architect commanding mass reconstruction with elevated palm"
             fill
             sizes="100vw"
             style={{
               objectFit: 'cover',
-              objectPosition: 'center 35%',
               filter: 'brightness(0.97) contrast(1.08)',
             }}
           />

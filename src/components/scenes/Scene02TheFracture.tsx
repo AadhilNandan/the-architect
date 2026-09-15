@@ -124,13 +124,13 @@ export const Scene02TheFracture: React.FC<Scene02TheFractureProps> = ({ isUnseal
           }}
         >
           <Image
+            className="plate-fracture-01"
             src="/images/fracture_01_civilization.jpeg"
             alt="Monumental ancient Roman civilization before the collapse"
             fill
             sizes="100vw"
             style={{
               objectFit: 'cover',
-              objectPosition: '50% 35%',
               filter: 'brightness(0.96) contrast(1.06) saturate(0.92)',
             }}
             priority
@@ -202,13 +202,13 @@ export const Scene02TheFracture: React.FC<Scene02TheFractureProps> = ({ isUnseal
           }}
         >
           <Image
+            className="plate-transition-02-03"
             src="/images/transition_02_03.jpeg"
             alt="Cinematic transition bridge from The Fracture to The Awakening"
             fill
             sizes="100vw"
             style={{
               objectFit: 'cover',
-              objectPosition: 'center 40%',
               filter: 'brightness(0.96) contrast(1.06)',
             }}
           />

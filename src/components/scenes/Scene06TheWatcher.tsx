@@ -129,13 +129,13 @@ export const Scene06TheWatcher: React.FC<Scene06TheWatcherProps> = () => {
           }}
         >
           <Image
+            className="plate-watcher-01"
             src="/images/watcher_01_empire.jpeg"
             alt="Mortal empires rising across the horizon of centuries"
             fill
             sizes="100vw"
             style={{
               objectFit: 'cover',
-              objectPosition: 'center 40%',
               filter: 'brightness(0.96) contrast(1.06)',
             }}
             priority
@@ -156,13 +156,13 @@ export const Scene06TheWatcher: React.FC<Scene06TheWatcherProps> = () => {
           }}
         >
           <Image
+            className="plate-watcher-02"
             src="/images/watcher_02_decay.jpeg"
             alt="Thrones decaying into dust beneath ancient suns"
             fill
             sizes="100vw"
             style={{
               objectFit: 'cover',
-              objectPosition: 'center',
               filter: 'brightness(0.98) contrast(1.08)',
             }}
           />

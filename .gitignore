@@ -45,3 +45,8 @@ next-env.d.ts
 /src/components/SealDrawing.tsx
 /src/story
 
+# local test screenshots & scratch scripts
+/mobile-screenshots
+/mobile-screenshots-v2
+/scratch
+
